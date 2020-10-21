@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,10 +21,28 @@ public class Qualification {
 
     @Column(name = "up")
     private String up;
+
+    @Column(name = "id_course")
     private int idCourse;
+
+    @Column(name = "calif_unit1")
     private float califUnit1;
+
+    @Column(name = "calif_unit2")
     private float califUnit2;
+
+    @Column(name = "attendances")
     private int attendances;
+
+    // Table relationships
+    @ManyToOne
+    @JoinColumn(name = "up", referencedColumnName = "up", insertable = false, updatable = false)
+    private Student student;
+
+    @ManyToOne
+    @JoinColumn(name = "id_course", referencedColumnName = "id_course", insertable = false, updatable = false)
+    private Course course;
+
 
     public Qualification() {
     }
@@ -41,6 +61,38 @@ public class Qualification {
         this.califUnit1 = califUnit1;
         this.califUnit2 = califUnit2;
         this.attendances = attendances;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public Student getStudent() {
+        return student;
+    }
+
+    /**
+     * 
+     * @param student
+     */
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public Course getCourse() {
+        return course;
+    }
+
+    /**
+     * 
+     * @param course
+     */
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     /**

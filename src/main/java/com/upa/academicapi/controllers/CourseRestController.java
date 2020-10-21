@@ -1,5 +1,6 @@
 package com.upa.academicapi.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.upa.academicapi.dao.api.CourseDaoAPI;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/api")
-public class CourseRespController {
+public class CourseRestController {
 
     @Autowired
     private CourseServiceAPI repository;
@@ -45,6 +46,14 @@ public class CourseRespController {
         Course newCourse = this.repository.save(entity);
         return new ResponseEntity<>(newCourse, HttpStatus.OK);
     }
+
+    @PostMapping(value="/courses")
+    public ResponseEntity<List<Course>> save(@RequestBody List<Course> entity) {
+        List<Course> courses = new ArrayList<>();
+        entity.forEach(course -> courses.add(repository.save(course)));
+        return new ResponseEntity<>(courses, HttpStatus.OK);
+    }
+    
 
     @PutMapping(value = "/course/{id}")
     public ResponseEntity<Course> update(@RequestBody Course entity, @PathVariable Long id) {

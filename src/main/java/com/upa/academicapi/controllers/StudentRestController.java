@@ -1,5 +1,6 @@
 package com.upa.academicapi.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.upa.academicapi.dao.api.StudentDaoAPI;
@@ -42,11 +43,18 @@ public class StudentRestController {
 
     @PostMapping(value = "/student")
     public ResponseEntity<Student> save(@RequestBody Student entity) {
-        Student newStudent = this.repository.save(entity);
-        return new ResponseEntity<>(newStudent, HttpStatus.OK);
+        Student student = this.repository.save(entity);
+        return new ResponseEntity<>(student, HttpStatus.OK);
     }
 
-    @PutMapping(value = "student/{up}")
+    @PostMapping(value = "/students")
+    public ResponseEntity<List<Student>> save(@RequestBody List<Student> entity) {
+        List<Student> students = new ArrayList<>();
+        entity.forEach(student -> students.add(repository.save(student)));
+        return new ResponseEntity<>(students, HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/student/{up}")
     public ResponseEntity<Student> update(@PathVariable String up, @RequestBody Student entity) {
         Student putStudent = this.repositoryDao.findById(up).map(student -> {
             student.setFisrtNames(entity.getFisrtNames());
