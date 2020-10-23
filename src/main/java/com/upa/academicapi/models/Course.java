@@ -3,9 +3,9 @@ package com.upa.academicapi.models;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,15 +17,15 @@ import javax.persistence.Table;
 public class Course {
 
     @Column(name = "id_course")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private @Id Long idCourse;
 
     @Column(name = "course_name")
     private String courseName;
 
-    // Table relationships
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "course")
-    private List<Qualification> qualification;
+    // Table Relationships
+    @OneToMany(mappedBy = "course", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    private List<Qualification> qualifications;
 
     public Course() {
     }
@@ -38,20 +38,12 @@ public class Course {
         this.courseName = courseName;
     }
 
-    /**
-     * 
-     * @return
-     */
-    public List<Qualification> getQualification() {
-        return qualification;
+    public List<Qualification> getQualifications() {
+        return qualifications;
     }
 
-    /**
-     * 
-     * @param qualification
-     */
-    public void setQualification(List<Qualification> qualification) {
-        this.qualification = qualification;
+    public void setQualifications(List<Qualification> qualifications) {
+        this.qualifications = qualifications;
     }
 
     /**

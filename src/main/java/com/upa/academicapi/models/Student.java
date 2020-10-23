@@ -3,9 +3,9 @@ package com.upa.academicapi.models;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -35,9 +35,9 @@ public class Student {
     @Column(name = "groupC")
     private char group;
 
-    // Table relationships
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "student")
-    private List<Qualification> qualification;
+    // Table Relationships
+    @OneToMany(mappedBy = "student", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    private List<Qualification> qualifications;
 
     public Student() {
     }
@@ -63,12 +63,12 @@ public class Student {
         this.group = group;
     }
 
-    public List<Qualification> getQualification() {
-        return qualification;
+    public List<Qualification> getQualifications() {
+        return qualifications;
     }
 
-    public void setQualification(List<Qualification> qualification) {
-        this.qualification = qualification;
+    public void setQualifications(List<Qualification> qualifications) {
+        this.qualifications = qualifications;
     }
 
     public String getUp() {

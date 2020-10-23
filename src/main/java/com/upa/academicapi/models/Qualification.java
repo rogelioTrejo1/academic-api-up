@@ -2,6 +2,7 @@ package com.upa.academicapi.models;
 
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +17,7 @@ import javax.persistence.Table;
 public class Qualification {
 
     @Column(name = "id_qualification")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private @Id Long idQualification;
 
     @Column(name = "up")
@@ -34,15 +35,14 @@ public class Qualification {
     @Column(name = "attendances")
     private int attendances;
 
-    // Table relationships
-    @ManyToOne
-    @JoinColumn(name = "up", referencedColumnName = "up", insertable = false, updatable = false)
+    // Table Relationships
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "up", insertable = false, updatable = false)
     private Student student;
 
-    @ManyToOne
-    @JoinColumn(name = "id_course", referencedColumnName = "id_course", insertable = false, updatable = false)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "id_course", insertable = false, updatable = false)
     private Course course;
-
 
     public Qualification() {
     }
@@ -65,34 +65,10 @@ public class Qualification {
 
     /**
      * 
-     * @return
+     * @param idQualification
      */
-    public Student getStudent() {
-        return student;
-    }
-
-    /**
-     * 
-     * @param student
-     */
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    public Course getCourse() {
-        return course;
-    }
-
-    /**
-     * 
-     * @param course
-     */
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setIdQualification(Long idQualification) {
+        this.idQualification = idQualification;
     }
 
     /**
