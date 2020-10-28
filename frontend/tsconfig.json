@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    //Target y traspilación del codigo para la tectura
+    "target": "ESNext",
+    "module": "ES6",
+    //Ubicación y salida de los archivos
+    "outDir": "./dist/",
+    "rootDir": "./src",
+    //Reglas para la Compilacion del lenguaje.
+    "removeComments": true,
+    "importHelpers": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "esModuleInterop": true
+  },
+  //Archivos a COMPILAR 
+  "include": [
+    "src/**/*"
+  ],
+  //Archivos que no COMPILARA
+  "exclude": [
+    "node_modules",
+    "webpac.config.ts"
+  ]
+}
