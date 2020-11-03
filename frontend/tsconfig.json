@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     //Target y traspilación del codigo para la tectura
-    "target": "ESNext",
-    "module": "ES6",
+    "target": "ES6",
+    "module": "CommonJS",
     //Ubicación y salida de los archivos
     "outDir": "./dist/",
     "rootDir": "./src",
@@ -15,6 +15,7 @@
     "strictFunctionTypes": true,
     "strictBindCallApply": true,
     "strictPropertyInitialization": true,
+    "allowSyntheticDefaultImports": false,
     "noImplicitThis": true,
     "alwaysStrict": true,
     "esModuleInterop": true

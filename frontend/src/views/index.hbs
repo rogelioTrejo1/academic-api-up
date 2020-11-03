@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webpack-App-Type</title>
+    <title>Academic UPA</title>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
-    <section class="container-small">
-        <div class="col-11 mx-auto">
-            <img src="images/webpack.png" class="img-fluid">
+    {{!--  Import the header of aplication --}}
+    {{> partials/header}}
+
+    {{!-- Main body --}}
+    <section class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-3">Academic UPA</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
+                to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="/students.html" role="button">Start</a>
+            </p>
         </div>
-        <h2 class="text-center">Cambia el código en <a href="#">./src/index.ts</a></h2>
     </section>
 </body>
+
 </html>

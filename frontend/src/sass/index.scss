@@ -1,0 +1,11 @@
+.centerX {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.centerX-relative {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}

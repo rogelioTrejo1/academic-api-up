@@ -14,7 +14,7 @@ const fromJS = path.resolve(__dirname, "../dist/js");
 const toJS = path.resolve(__dirname, "../../src/main/resources/static/js");
 
 // IMAGES
-const fromImages = path.resolve(__dirname, "../dist/static");
+const fromImages = path.resolve(__dirname, "../dist/images");
 const toImages = path.resolve(__dirname, "../../src/main/resources/static/images");
 
 /**
@@ -49,5 +49,5 @@ const copyFiles = async() => {
 clearFolder();
 setTimeout(() => {
     copyFiles();
-    console.log("successfully copied files!!!!!")
+    console.log("successfully copied files!!!!!");
 }, 2000);

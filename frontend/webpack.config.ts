@@ -3,16 +3,18 @@ import { config } from "dotenv";
 config();
 
 //Dependencias de configuración
-import { Configuration,  } from "webpack";
+import { Configuration } from "webpack";
 import path from "path";
 import htmlWebpackPlugin from "html-webpack-plugin"
 import miniCssExtractPlugin from "mini-css-extract-plugin";
 import DotEnv from "dotenv-webpack";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
 //Configuración extra para el entorno de desarrollo "webpack-dev-server"
 interface WebpackConfig extends Configuration {
     devServer : {
-        port: any
+        port: any,
+        contentBase: any
     }
 }
 
@@ -30,7 +32,9 @@ const webpackConfig: WebpackConfig = {
      * Se define donde es encontrara el archivo principal que ejecutara la aplicación.
      */
     entry: {
-        main: "./src/index.ts"
+        index: "./src/index.ts",
+        students: "./src/students.ts",
+        student: "./src/student.ts"
     },
     /**
      * Se define la salida del los archivos compilados y/o traspilados para su ejecusión.
@@ -46,7 +50,7 @@ const webpackConfig: WebpackConfig = {
      */
     output: {
         path: path.resolve(__dirname, "./dist"),
-        filename: "js/bandle.js"
+        filename: "js/[name].bundel.js"
     },
     /**
      * Se establece todas aquellas extenciones de archivos que pobra leer la configuración de webpack
@@ -75,8 +79,8 @@ const webpackConfig: WebpackConfig = {
             },
             // Lectura de los archivos handlebars (.hbs o .handlebars)
             {
-                test: /\.(hbs|handlebars)$/,
-                use: "handlebars-loader"
+                test: /\.hbs$/,
+                loader: "handlebars-loader",
             },
             // Lecturea de los archivos de Syles (.scss y/o .css)
             {
@@ -94,7 +98,7 @@ const webpackConfig: WebpackConfig = {
                     loader: 'file-loader',
                     options: {
                         name: '[name].[ext]',
-                        outputPath: "static/",
+                        outputPath: "images/",
                         useRelativePath: true
                     }
                 }]
@@ -145,6 +149,8 @@ const webpackConfig: WebpackConfig = {
         //Manejo de todo el HTML o algun motor de platillas que se desee ocupar
         new htmlWebpackPlugin({
             template: path.relative(__dirname, './src/views/index.hbs'),
+            inject: true,
+            chunks: ['index'],
             minify: {
                 collapseWhitespace: true,
                 removeComments: true,
@@ -152,7 +158,36 @@ const webpackConfig: WebpackConfig = {
                 removeScriptTypeAttributes: true,
                 removeStyleLinkTypeAttributes: true,
                 useShortDoctype: true
-            }
+            },
+            filename: "index.html"
+        }),
+        new HtmlWebpackPlugin({
+            template: path.relative(__dirname, './src/views/students.hbs'),
+            inject: true,
+            chunks: ['students'],
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true
+            },
+            filename: "students.html" 
+        }),
+        new HtmlWebpackPlugin({
+            template: path.relative(__dirname, './src/views/student.hbs'),
+            inject: true,
+            chunks: ['student'],
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true
+            },
+            filename: "student.html" 
         }),
         //Manejo de todo el CSS o archivos de un pre procesador de CSS
         new miniCssExtractPlugin({
@@ -172,7 +207,8 @@ const webpackConfig: WebpackConfig = {
      * 
      * */
     devServer: {
-        port: process.env.PORT || 4000
+        port: process.env.PORT || 4000,
+        contentBase: path.join(__dirname, "dist")
     }
 };
 

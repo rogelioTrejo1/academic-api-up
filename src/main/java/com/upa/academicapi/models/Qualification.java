@@ -75,7 +75,7 @@ public class Qualification {
      * 
      * @return
      */
-    public Long getIdQuQualification() {
+    public Long getIdQualification() {
         return idQualification;
     }
 

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic UPA</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    {{!--  Import the header of aplication --}}
+    {{> partials/header}}
+
+    {{!-- Main Content --}}
+    <section class="container" id="studentConteiner">
+        <section class="row mt-5">
+            <article class="col-4">
+                <div class="container-small w-50 centerX">
+                    <img class="img-fluid" src="images/perfil.png">
+                </div>
+            </article>
+            <article class="col-8">
+                <p>Name: <span>Rogelio</span> <span>Trejo Estrada</span></p>
+                <p>UP: <span>UP190830</span></p>
+                <p>Address: <span>Gaspar de la Fuente #317, Villas de nuestra señora de la Asunción, aguscalientes,
+                        Aguscalientes</span></p>
+                <p>Grade and Group: <span>ISEI</span><span>03</span><span>B</span></p>
+            </article>
+        </section>
+    </section>
+
+    <section class="container mt-5">
+        <h3 class="text-center">Qualifications</h3>
+        <table class="table table-active">
+            <thead>
+                <tr>
+                    <td># Qualification</td>
+                    <td>Course</td>
+                    <td>Parcial 1</td>
+                    <td>Parcial 2</td>
+                    <td>Attendances</td>
+                    <td>Average</td>
+                </tr>
+            </thead>
+            <tbody id="qualifiContainer">
+                <tr>
+                    <td>1</td>
+                    <td>Programacion Orientada a Objetos</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>30</td>
+                    <td>10</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+</body>
+
+</html>
