@@ -11,7 +11,7 @@ studentsContainer.addEventListener("click", (e: Event) => {
     if (target.classList.contains("qualification")) {
         const btnShowQuali: HTMLButtonElement = target as HTMLButtonElement;
 
-        window.location.href = `/student.html?up=${btnShowQuali.value}`;
+        window.location.href = `/student?up=${btnShowQuali.value}`;
     }
         
 });

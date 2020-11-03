@@ -10,8 +10,18 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/create")
+    @RequestMapping("/newStudent")
     public String create() {
-        return "create";
+        return "newStudent";
+    }
+
+    @RequestMapping("/student")
+    public String student() {
+        return "student";
+    }
+
+    @RequestMapping("/students")
+    public String students() {
+        return "students";
     }
 }

@@ -34,7 +34,8 @@ const webpackConfig: WebpackConfig = {
     entry: {
         index: "./src/index.ts",
         students: "./src/students.ts",
-        student: "./src/student.ts"
+        student: "./src/student.ts",
+        newStudent: "./src/newStudent.ts"
     },
     /**
      * Se define la salida del los archivos compilados y/o traspilados para su ejecusión.
@@ -188,6 +189,20 @@ const webpackConfig: WebpackConfig = {
                 useShortDoctype: true
             },
             filename: "student.html" 
+        }),
+        new HtmlWebpackPlugin({
+            template: path.relative(__dirname, './src/views/newStudent.hbs'),
+            inject: true,
+            chunks: ['newStudent'],
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true
+            },
+            filename: "newStudent.html" 
         }),
         //Manejo de todo el CSS o archivos de un pre procesador de CSS
         new miniCssExtractPlugin({
