@@ -16,22 +16,30 @@
     <section class="container mt-5">
         <article class="w-75 mx-auto">
             <h3 class="text-center mb-3">Insert a Student</h3>
-            <form class="card card-body">
+            <form class="card card-body" id="formNewStudent">
                 <div class="form-group row">
-                    <label class="col-6" for="name">
+                    <label class="col-4">
+                        UP
+                        <input 
+                            type="text" 
+                            class="form-control border" 
+                            name="up"
+                        />
+                    </label>
+                    <label class="col-4" for="name">
                         Names
                         <input 
                             type="text" 
                             class="form-control border" 
-                            id="name"
+                            name="firstNames"
                         />
                     </label>
-                    <label class="col-6" for="last-name">
+                    <label class="col-4" for="last-name">
                         Last Names
                         <input 
                             type="text" 
                             class="form-control border" 
-                            id="last-name"
+                            name="lastNames"
                         />
                     </label>
                 </div>
@@ -40,7 +48,7 @@
                         Adress
                         <input 
                             type="text"  
-                            id="address"
+                            name="address"
                             class="form-control"
                         />
                     </label>
@@ -48,19 +56,19 @@
                 <div class="form-group row">
                     <label for="career" class="col-4">
                         Career
-                        <select id="" class="form-control">
+                        <select name="career" class="form-control">
                             <option value="ISEI">ISEI</option>
                         </select>
                     </label>
                     <label for="grade" class="col-4">
                         Grade
-                        <select id="grade" class="form-control">
+                        <select name="grade" class="form-control">
                             <option value="1">1</option>
                         </select>
                     </label>
                     <label for="group" class="col-4">
                         Group
-                        <select id="Group" class="form-control">
+                        <select name="group" class="form-control">
                             <option value="A">A</option>
                         </select>
                     </label>

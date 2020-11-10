@@ -13,18 +13,19 @@
     {{> partials/header}}
 
     {{!-- Main body --}}
-    <section class="container-fluid mt-5 row" id="studentsContainer">
-        <div class="col-4 mb-2">
-            <div class="card card-body">
-                <div class="form-group">
-                    <img class="w-50 centerX-relative" src="images/perfil.png" alt="">
-                </div>
-                <p>Name: <span>Rogelio</span> <span>Trejo Estrada</span></p>
-                <p>UP: <span>UP190830</span></p>
-                <p>Grade and Group: <span>ISEI</span><span>03</span><span>B</span></p>
-                <button value="UP190830" type="button" class="btn btn-block  btn-primary qualification">Show
-                    Qualifications</button>
-            </div>
+    <section class="container mx-auto mt-5" id="students">
+        <p class="display-4 text-center">Students</p>
+        <section class="row" id="studentsContainer"></section>
+    </section>
+
+    {{!-- Message if there are no students --}}
+    <section class="container mx-auto mt-5" id="messgeContainer">
+        <div class="jumbotron">
+            <h1 class="display-3">There are no Students registered!</h1>
+            <hr class="my-4">
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="/newStudent" role="button">Insert a one!</a>
+            </p>
         </div>
     </section>
 </body>

@@ -12,50 +12,48 @@
     {{!--  Import the header of aplication --}}
     {{> partials/header}}
 
-    {{!-- Main Content --}}
-    <section class="container" id="studentConteiner">
+    {{!-- Information about the student --}}
+    <section class="container mb-5">
         <section class="row mt-5">
             <article class="col-4">
                 <div class="container-small w-50 centerX">
                     <img class="img-fluid" src="images/perfil.png">
                 </div>
             </article>
-            <article class="col-8">
-                <p>Name: <span>Rogelio</span> <span>Trejo Estrada</span></p>
-                <p>UP: <span>UP190830</span></p>
-                <p>Address: <span>Gaspar de la Fuente #317, Villas de nuestra señora de la Asunción, aguscalientes,
-                        Aguscalientes</span></p>
-                <p>Grade and Group: <span>ISEI</span><span>03</span><span>B</span></p>
-            </article>
+            <article class="col-8" id="informationStudent"></article>
         </section>
     </section>
 
-    <section class="container mt-5">
+    {{!-- Qualifications of the student --}}
+    <section class="container mt-5" id="qualifications">
         <h3 class="text-center">Qualifications</h3>
-        <table class="table table-active">
-            <thead>
+        <table class="table table-hover">
+            <thead class="bg-dark">
                 <tr>
-                    <td># Qualification</td>
-                    <td>Course</td>
-                    <td>Parcial 1</td>
-                    <td>Parcial 2</td>
-                    <td>Attendances</td>
-                    <td>Average</td>
+                    <td class="text-white"># Qualification</td>
+                    <td class="text-white">Course</td>
+                    <td class="text-white">Parcial 1</td>
+                    <td class="text-white">Parcial 2</td>
+                    <td class="text-white">Attendances</td>
+                    <td class="text-white">Average</td>
                 </tr>
             </thead>
-            <tbody id="qualifiContainer">
-                <tr>
-                    <td>1</td>
-                    <td>Programacion Orientada a Objetos</td>
-                    <td>10</td>
-                    <td>10</td>
-                    <td>30</td>
-                    <td>10</td>
-                </tr>
-            </tbody>
+            <tbody id="qualifiContainer"></tbody>
         </table>
     </section>
-    
+
+    {{!-- Message if the student does not have qualifications --}}
+    <section class="container mt-5" id="messgeContainer">
+        <div class="jumbotron">
+            <h1 class="display-3">ohhh! You do not have qualifications!</h1>
+            <p class="lead">Possibly, teachers have not had time or we have problems with capturing these</p>
+            <hr class="my-4">
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="/" role="button">Retun the home</a>
+            </p>
+        </div>
+    </section>
+
 </body>
 
 </html>

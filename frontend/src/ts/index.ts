@@ -1,4 +1,4 @@
-// Images
+// Imports of application
 import "../image/favicon.ico";
 import "../image/webpack.png";
 

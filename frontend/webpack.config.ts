@@ -32,10 +32,10 @@ const webpackConfig: WebpackConfig = {
      * Se define donde es encontrara el archivo principal que ejecutara la aplicación.
      */
     entry: {
-        index: "./src/index.ts",
-        students: "./src/students.ts",
-        student: "./src/student.ts",
-        newStudent: "./src/newStudent.ts"
+        index: "./src/ts//index.ts",
+        students: "./src/ts/students.ts",
+        student: "./src/ts/student.ts",
+        newStudent: "./src/ts/newStudent.ts"
     },
     /**
      * Se define la salida del los archivos compilados y/o traspilados para su ejecusión.
