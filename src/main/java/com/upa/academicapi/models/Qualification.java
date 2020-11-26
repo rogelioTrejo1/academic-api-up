@@ -24,7 +24,7 @@ public class Qualification {
     private String up;
 
     @Column(name = "id_course")
-    private int idCourse;
+    private Long idCourse;
 
     @Column(name = "calif_unit1")
     private float califUnit1;
@@ -36,11 +36,11 @@ public class Qualification {
     private int attendances;
 
     // Table Relationships
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
     @JoinColumn(name = "up", insertable = false, updatable = false)
     private Student student;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
     @JoinColumn(name = "id_course", insertable = false, updatable = false)
     private Course course;
 
@@ -48,14 +48,15 @@ public class Qualification {
     }
 
     /**
+     * Create a new Qualification to save
      * 
-     * @param up
-     * @param idCourse
-     * @param califUnit1
-     * @param califUnit2
-     * @param attendances
+     * @param up          Student's ID
+     * @param idCourse    Course's ID
+     * @param califUnit1  Qualification of the Unit 1
+     * @param califUnit2  Qualification of the Unit 2
+     * @param attendances Attendances of the Course
      */
-    public Qualification(String up, int idCourse, float califUnit1, float califUnit2, int attendances) {
+    public Qualification(String up, Long idCourse, float califUnit1, float califUnit2, int attendances) {
         this.up = up;
         this.idCourse = idCourse;
         this.califUnit1 = califUnit1;
@@ -64,96 +65,108 @@ public class Qualification {
     }
 
     /**
+     * Set the Ithentify of the Qualification
      * 
-     * @param idQualification
+     * @param idQualification Qualification's ID
      */
     public void setIdQualification(Long idQualification) {
         this.idQualification = idQualification;
     }
 
     /**
+     * Get the Ithentify of the Qualification
      * 
-     * @return
+     * @return Qualification's ID
      */
     public Long getIdQualification() {
         return idQualification;
     }
 
     /**
+     * Get the Identifiy of the student
      * 
-     * @return
+     * @return ID
      */
     public String getUp() {
         return up;
     }
 
     /**
+     * Set the ID of the student
      * 
-     * @param up
+     * @param up ID of the student
      */
     public void setUp(String up) {
         this.up = up;
     }
 
     /**
+     * Set the Identify of the Course
      * 
-     * @return
+     * @param idCourse Couser's ID
      */
-    public int getIdCourse() {
-        return idCourse;
-    }
-
-    /**
-     * 
-     * @param idCourse
-     */
-    public void setIdCourse(int idCourse) {
+    public void setIdCourse(Long idCourse) {
         this.idCourse = idCourse;
     }
 
     /**
+     * Get the Identify of the Course
      * 
-     * @return
+     * @return Course's ID
+     */
+    public Long getIdCourse() {
+        return this.idCourse;
+    }
+
+    /**
+     * Return the Qualification of the first Unit
+     * 
+     * @return Unit 1 Qualification
      */
     public float getCalifUnit1() {
         return califUnit1;
     }
 
     /**
+     * Set the Qualification of the first Unit
      * 
-     * @param califUnit1
+     * @param califUnit1 Firts Unit's Qualification
      */
     public void setCalifUnit1(float califUnit1) {
         this.califUnit1 = califUnit1;
     }
 
     /**
+     * Get the Qualification of the second Unit
      * 
-     * @return
+     * @return Second Unit's Qualification
      */
     public float getCalifUnit2() {
         return califUnit2;
     }
 
     /**
+     * Set the Qualification of the second Unit
      * 
-     * @param califUnit2
+     * @param califUnit2 Second Unit's Qualification
      */
     public void setCalifUnit2(float califUnit2) {
         this.califUnit2 = califUnit2;
     }
 
     /**
+     * Get the Attendances of the Unit
      * 
-     * @return
+     * @return Unit's Attendence
      */
     public int getAttendances() {
         return attendances;
     }
 
     /**
-     * 
-     * @param attendances
+     * Set the Attendence of the Unit
+     *  
+     * @param attendances Unit's Attendence
      */
     public void setAttendances(int attendances) {
         this.attendances = attendances;

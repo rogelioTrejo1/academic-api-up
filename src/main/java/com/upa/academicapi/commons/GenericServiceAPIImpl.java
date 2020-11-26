@@ -37,10 +37,10 @@ public abstract class GenericServiceAPIImpl<T, ID extends Serializable> implemen
         getDao().findAll().forEach(obj -> retunList.add(obj));
         return retunList;
     }
-    
+
     /**
-     * 
-     * @return
+     * Set the Dao of the CRUD (Any Entity that extendes)
+     * @return the DAO
      */
     public abstract CrudRepository<T, ID> getDao();
 

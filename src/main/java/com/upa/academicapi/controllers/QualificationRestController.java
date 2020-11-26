@@ -19,6 +19,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * I set the routes for the API, simple by following this example:
+ * http//localhost:300/api/route-to-specify
+ */
 @RestController
 @RequestMapping("/api")
 public class QualificationRestController {
@@ -29,24 +33,43 @@ public class QualificationRestController {
     @Autowired
     private QualificationDaoAPI repositoryDao;
 
+    /**
+     * 
+     * @return
+     */
     @GetMapping(value = "/qualification")
     public ResponseEntity<List<Qualification>> getAll() {
         List<Qualification> qualifications = this.repository.getAll();
         return new ResponseEntity<>(qualifications, HttpStatus.OK);
     }
 
+    /**
+     * 
+     * @param id
+     * @return
+     */
     @GetMapping(value = "/qualification/{id}")
     public ResponseEntity<Qualification> getOne(@PathVariable Long id) {
         Qualification qualification = this.repository.getOne(id);
         return new ResponseEntity<>(qualification, HttpStatus.OK);
     }
 
+    /**
+     * 
+     * @param entity
+     * @return
+     */
     @PostMapping(value = "/qualification")
     public ResponseEntity<Qualification> save(@RequestBody Qualification entity) {
         Qualification qualification = this.repository.save(entity);
         return new ResponseEntity<>(qualification, HttpStatus.OK);
     }
 
+    /**
+     * 
+     * @param entities
+     * @return
+     */
     @PostMapping(value = "/qualifications")
     public ResponseEntity<List<Qualification>> save(@RequestBody List<Qualification> entities) {
         List<Qualification> qualifications = new ArrayList<>();
@@ -54,6 +77,12 @@ public class QualificationRestController {
         return new ResponseEntity<>(qualifications, HttpStatus.OK);
     }
 
+    /**
+     * 
+     * @param entity
+     * @param id
+     * @return
+     */
     @PutMapping(value = "/qualification/{id}")
     public ResponseEntity<Qualification> update(@RequestBody Qualification entity, @PathVariable Long id) {
         Qualification putQualification = this.repositoryDao.findById(id).map(qualification -> {
@@ -71,6 +100,11 @@ public class QualificationRestController {
         return new ResponseEntity<>(putQualification, HttpStatus.OK);
     }
 
+    /**
+     * 
+     * @param id
+     * @return
+     */
     @DeleteMapping(value = "/qualification/{id}")
     public ResponseEntity<Qualification> delete(@PathVariable Long id) {
         this.repository.delete(id);

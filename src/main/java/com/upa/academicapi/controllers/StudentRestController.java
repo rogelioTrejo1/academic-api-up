@@ -19,6 +19,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 
+/**
+ * I set the routes for the API, simple by following this example:
+ * http//localhost:300/api/route-to-specify
+ */
 @RestController
 @RequestMapping(value = "/api")
 public class StudentRestController {
@@ -29,24 +33,41 @@ public class StudentRestController {
     @Autowired
     private StudentDaoAPI repositoryDao;
 
+    /**
+     * 
+     * @return
+     */
     @GetMapping(value = "/student")
     public ResponseEntity<List<Student>> getAll() {
         List<Student> students = this.repository.getAll();
         return new ResponseEntity<>(students, HttpStatus.OK);
     }
 
+    /**
+     * 
+     * @param id
+     * @return
+     */
     @GetMapping(value = "/student/{id}")
     public ResponseEntity<Student> getOne(@PathVariable String id) {
         Student student = this.repository.getOne(id);
         return new ResponseEntity<>(student, HttpStatus.OK);
     }
 
+    /**
+     * 
+     * @param entity
+     * @return
+     */
     @PostMapping(value = "/student")
     public ResponseEntity<Student> save(@RequestBody Student entity) {
         Student student = this.repository.save(entity);
         return new ResponseEntity<>(student, HttpStatus.OK);
     }
 
+    /**
+     * 
+     */
     @PostMapping(value = "/students")
     public ResponseEntity<List<Student>> save(@RequestBody List<Student> entity) {
         List<Student> students = new ArrayList<>();
@@ -54,6 +75,12 @@ public class StudentRestController {
         return new ResponseEntity<>(students, HttpStatus.OK);
     }
 
+    /**
+     * 
+     * @param up
+     * @param entity
+     * @return
+     */
     @PutMapping(value = "/student/{up}")
     public ResponseEntity<Student> update(@PathVariable String up, @RequestBody Student entity) {
         Student putStudent = this.repositoryDao.findById(up).map(student -> {
@@ -74,6 +101,11 @@ public class StudentRestController {
         return new ResponseEntity<>(putStudent, HttpStatus.OK);
     }
 
+    /**
+     * 
+     * @param up
+     * @return
+     */
     @DeleteMapping(value = "/student/{up}")
     public ResponseEntity<Student> delete(@PathVariable String up) {
         this.repository.delete(up);

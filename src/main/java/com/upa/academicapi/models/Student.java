@@ -36,21 +36,23 @@ public class Student {
     private char group;
 
     // Table Relationships
-    @OneToMany(mappedBy = "student", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @OneToMany(mappedBy = "student", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+            CascadeType.REFRESH })
     private List<Qualification> qualifications;
 
     public Student() {
     }
 
     /**
+     * Create a new Student
      * 
-     * @param up
-     * @param fisrtNames
-     * @param lastNames
-     * @param address
-     * @param career
-     * @param grade
-     * @param group
+     * @param up         ID of the students
+     * @param fisrtNames Names of the student
+     * @param lastNames  LastNames of the Student
+     * @param address    Adress of the student
+     * @param career     Career of the Student
+     * @param grade      Grade of the Student
+     * @param group      Group of the Student
      */
     public Student(String up, String fisrtNames, String lastNames, String address, String career, int grade,
             char group) {
@@ -63,70 +65,146 @@ public class Student {
         this.group = group;
     }
 
+    /**
+     * Get all Qualifications of the student
+     * 
+     * @return all Qualificatios
+     */
     public List<Qualification> getQualifications() {
         return qualifications;
     }
 
+    /**
+     * Set the Qualifications of the student
+     * 
+     * @param qualifications List of Qualifications
+     */
     public void setQualifications(List<Qualification> qualifications) {
         this.qualifications = qualifications;
     }
 
+    /**
+     * Get the Identifiy of the student
+     * 
+     * @return ID
+     */
     public String getUp() {
         return up;
     }
 
+    /**
+     * Set the ID of the student
+     * 
+     * @param up ID of the student
+     */
     public void setUp(String up) {
         this.up = up;
     }
 
+    /**
+     * Get the Names of the Student
+     * 
+     * @return the names
+     */
     public String getFisrtNames() {
         return fisrtNames;
     }
 
+    /**
+     * Set the Names of the students
+     * 
+     * @param fisrtNames Names of the student
+     */
     public void setFisrtNames(String fisrtNames) {
         this.fisrtNames = fisrtNames;
     }
 
+    /**
+     * Get the LastNames of the student
+     * 
+     * @return The LastNames
+     */
     public String getLastNames() {
         return lastNames;
     }
 
+    /**
+     * Set the LastNames of the student
+     * 
+     * @param lastNames LastNames of the student
+     */
     public void setLastNames(String lastNames) {
         this.lastNames = lastNames;
     }
 
+    /**
+     * Get the Adress of the student
+     * 
+     * @return the adress
+     */
     public String getAddress() {
         return address;
     }
 
+    /**
+     * Set the adress of the student
+     * 
+     * @param address the adress of the student
+     */
     public void setAddress(String address) {
         this.address = address;
     }
 
+    /**
+     * Get the Career of the student
+     * 
+     * @return the Career's Student
+     */
     public String getCareer() {
         return career;
     }
 
+    /**
+     * Set the Career of the Student
+     * 
+     * @param career Student's Grade
+     */
     public void setCareer(String career) {
         this.career = career;
     }
 
+    /**
+     * Get the Grade of the Student
+     * 
+     * @return Student's Grade
+     */
     public int getGrade() {
         return grade;
     }
 
+    /**
+     * Set the Grade of the Student
+     * @param grade Student's Grade
+     */
     public void setGrade(int grade) {
         this.grade = grade;
     }
 
+    /**
+     * Get the Group of the Student
+     * @return Student's Group
+     */
     public char getGroup() {
         return group;
     }
 
+    /**
+     * Set The group of the student
+     * @param group Student's Group
+     */
     public void setGroup(char group) {
         this.group = group;
     }
-    
 
     @Override
     public boolean equals(Object o) {
@@ -146,7 +224,8 @@ public class Student {
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.up, this.fisrtNames, this.lastNames, this.address, this.career, this.grade, this.group);
+        return Objects.hash(this.up, this.fisrtNames, this.lastNames, this.address, this.career, this.grade,
+                this.group);
     }
 
     @Override

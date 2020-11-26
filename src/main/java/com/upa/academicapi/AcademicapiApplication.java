@@ -33,8 +33,9 @@ public class AcademicapiApplication {
     }
 
     /**
+     * Set the CORS Config to the API
      * 
-     * @return
+     * @return CORS configuration
      */
     @Bean
     public WebMvcConfigurer corsConfigurer() {

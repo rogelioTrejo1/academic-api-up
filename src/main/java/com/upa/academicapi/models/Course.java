@@ -31,48 +31,56 @@ public class Course {
     }
 
     /**
-     * 
-     * @param courseName
+     * Create a new Course
+     * @param courseName Course Name
      */
     public Course(String courseName) {
         this.courseName = courseName;
     }
 
+    /**
+     * Get All Qualifications that The course 
+     * @return
+     */
     public List<Qualification> getQualifications() {
         return qualifications;
     }
 
+    /**
+     * Set a list of Qualifications of the Course
+     * @param qualifications Course's List Qualifications
+     */
     public void setQualifications(List<Qualification> qualifications) {
         this.qualifications = qualifications;
     }
 
     /**
-     * 
-     * @param idCourse
+     * Set the Identify of the Course
+     * @param idCourse Couser's ID
      */
     public void setIdCourse(Long idCourse) {
         this.idCourse = idCourse;
     }
 
     /**
-     * 
-     * @return
+     * Get the Identify of the Course
+     * @return Course's ID
      */
     public Long getIdCourse() {
         return idCourse;
     }
 
     /**
-     * 
-     * @return
+     * Get the Name of the Couse
+     * @return Course's Name
      */
     public String getCourseName() {
         return courseName;
     }
 
     /**
-     * 
-     * @param courseName
+     * Set the Name of the Course
+     * @param courseName Course's Name
      */
     public void setCourseName(String courseName) {
         this.courseName = courseName;
